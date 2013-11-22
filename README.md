@@ -1,6 +1,6 @@
 # .files
 
-Pronounced <em>/dotfiles/</em>. My repository of configuration files to be
+Pronounced <em>/'dɒtːfaɪlz/</em>. My repository of configuration files to be
 shared between different working machines.
 
 For organisational purposes they are kept *separate* from the actual home
