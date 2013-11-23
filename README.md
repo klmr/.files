@@ -35,6 +35,5 @@ Modules to add:
  * `Rprofile`
  * `vimrc`
  * Vim modules (separate from `vimrc`?)
- * `inputrc`
  * `lessrc`, `ackrc` etc.
  * Git/Mercurial config (but without user details?!)

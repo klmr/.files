@@ -1,0 +1,14 @@
+set completion-ignore-case on
+set keymap vi
+set editing-mode vi
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+set show-all-if-ambiguous on
+set history-preserve-point on
+
+"\e": vi-movement-mode
+"\C-w": dump-functions
+
+"\C-e": shell-expand-line
+
+TAB: menu-complete
