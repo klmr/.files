@@ -26,3 +26,15 @@ two configuration files to determine which config files to install:
    machine specific, it is not part of `origin/master` (but a local branch may
    be appropriate?). However, this repository has an
    [`example.conf`](example.conf) which can be used instead.
+
+
+## To do
+
+Modules to add:
+
+ * `Rprofile`
+ * `vimrc`
+ * Vim modules (separate from `vimrc`?)
+ * `inputrc`
+ * `lessrc`, `ackrc` etc.
+ * Git/Mercurial config (but without user details?!)
