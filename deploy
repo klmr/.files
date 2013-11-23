@@ -1,0 +1,81 @@
+#!/usr/bin/env bash
+
+load_user_conf() {
+    local conf="$1"
+    echo "$(<"$conf" sed '/^[[:space:]]*#/d')"
+}
+
+load_files() {
+    local components="$1"
+    local component="$2"
+    # Read component files
+    files=($(sed -n \
+        "# Look for line starting target component section
+        /^\\[$component\\]$/{
+            # Loop over section contents
+            :section
+            # Remove leading whitespace and print
+            s/^[[:space:]]*//p
+            # Go to next line
+            n
+            # Quit if line starts next section
+            /^\\[.*\\]$/q
+            # Otherwise, loop.
+            b section
+        }" <"$components" | tail -n +2))
+    # Return them, one at a time. Tedious, but the only way I know.
+    for file in "${files[@]}"; do
+        echo "$file"
+    done
+}
+
+verbose() {
+    cmd=("$@")
+    echo "  ${cmd[@]}"
+    # This hocus-pocus is necessary to preserve quotes around arguments.
+    # Otherwise file names with spaces would break.
+    "${cmd[@]}"
+}
+
+install() {
+    local components="$1"
+    local component="$2"
+    OLDIFS="$IFS"
+    IFS=$'\r\n'
+    files=($(load_files "$components" "$component"))
+    IFS="$OLDIFS"
+
+    for file in "${files[@]}"; do
+        dir="$(dirname "$file")"
+        verbose mkdir -p "$home/$dir"
+        verbose cp "$file" "$home/$file"
+    done
+}
+
+echo
+echo 'WARNING! This will overwrite files in your home directory.'
+echo 'Proceed with extreme caution and make a manual backup beforehand.'
+echo
+read -n 1 -p 'Are you sure you want to proceed [y/n]? ' reply
+echo
+
+if [ $reply != 'y' ]; then
+    exit 1
+fi
+
+echo 'Proceeding …'
+echo
+
+# Here’s where the actual fun starts.
+
+components="components.conf"
+conf="${1-user.conf}"
+home="$HOME"
+
+user_components=($(load_user_conf "$conf"))
+
+for component in "${user_components[@]}"; do
+    echo 'Installing component "'"$component"'":'
+    install "$components" "$component"
+    echo
+done
