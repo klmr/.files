@@ -39,6 +39,6 @@ export EDITOR=vim
 
 # Import aliases etc.
 
-for conf in .config/shell/*.conf; do
+for conf in ~/.config/shell/*.conf; do
     source "$conf"
 done
