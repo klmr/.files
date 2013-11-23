@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-load_user_conf() {
+load_local_conf() {
     local conf="$1"
     echo "$(<"$conf" sed '/^[[:space:]]*#/d')"
 }
@@ -69,12 +69,12 @@ echo
 # Here’s where the actual fun starts.
 
 components="components.conf"
-conf="${1-user.conf}"
+conf="${1-local.conf}"
 home="$HOME"
 
-user_components=($(load_user_conf "$conf"))
+local_components=($(load_local_conf "$conf"))
 
-for component in "${user_components[@]}"; do
+for component in "${local_components[@]}"; do
     echo 'Installing component "'"$component"'":'
     install "$components" "$component"
     echo
