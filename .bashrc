@@ -42,3 +42,9 @@ export EDITOR=vim
 for conf in ~/.config/shell/*.conf; do
     source "$conf"
 done
+
+# Import Bash completion
+
+if [ -f /usr/local/etc/bash_completion ]; then
+    source /usr/local/etc/bash_completion
+fi
