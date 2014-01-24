@@ -32,7 +32,6 @@ two configuration files to determine which config files to install:
 
 Modules to add:
 
- * `Rprofile`
  * Vim plugin modules (?)
  * `lessrc`, `ackrc` etc.
  * Git/Mercurial config (but without user details?!)
