@@ -28,29 +28,23 @@ if (interactive()) {
         else
             eval(thecall$y, list(value = eval(thecall$x)))
     }
-}
 
-if (interactive()) {
     library(colorout)
     setOutputColors256(verbose = FALSE)
     library(setwidth)
     #options(vimcom.verbose = 1)
     #library(vimcom)
     library(vimcom.plus)
-}
 
-.Last <- function ()
-    if (interactive())
+    .Last <- function ()
         try(savehistory(Sys.getenv('R_HISTFILE', '~/.Rhistory')))
 
-.First <- function ()
-    if (interactive()) {
-        # First try loading local history, then global.
-        histfile <- '.Rhistory'
-        if (! file.exists(histfile))
-            histfile <- Sys.getenv('R_HISTFILE', '~/.Rhistory')
-        try(loadhistory(histfile))
-    }
+    # First try loading local history, then global.
+    histfile <- '.Rhistory'
+    if (! file.exists(histfile))
+        histfile <- Sys.getenv('R_HISTFILE', '~/.Rhistory')
+    try(loadhistory(histfile))
+}
 
 # Purge the global environment
 
