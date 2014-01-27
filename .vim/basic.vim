@@ -56,6 +56,9 @@ vnoremap < <gv
 vnoremap > >gv
 vnoremap = =gv
 
+" Stay on word hit instead of jumping to next
+nnoremap * *<C-O>
+
 set list
 set listchars=tab:▸-,trail:·,extends:»,precedes:«,nbsp:⍽
 
