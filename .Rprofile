@@ -32,8 +32,6 @@ if (interactive()) {
     library(colorout)
     setOutputColors256(verbose = FALSE)
     library(setwidth)
-    #options(vimcom.verbose = 1)
-    #library(vimcom)
     library(vimcom.plus)
 
     .Last <- function ()
