@@ -39,12 +39,6 @@ if (interactive()) {
 
     .Last <- function ()
         try(savehistory(Sys.getenv('R_HISTFILE', '~/.Rhistory')))
-
-    # First try loading local history, then global.
-    histfile <- '.Rhistory'
-    if (! file.exists(histfile))
-        histfile <- Sys.getenv('R_HISTFILE', '~/.Rhistory')
-    try(loadhistory(histfile))
 }
 
 # Purge the global environment
