@@ -47,7 +47,10 @@ install() {
 
     for file in "${files[@]}"; do
         dir="$(dirname "$file")"
-        verbose mkdir -p "$home/$dir"
+        if [ "$dir" != '.' ]; then
+            verbose mkdir -p "$home/$dir"
+        fi
+
         verbose cp "$file" "$home/$file"
     done
 }
