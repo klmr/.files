@@ -42,7 +42,7 @@ install() {
     local component="$2"
     OLDIFS="$IFS"
     IFS=$'\r\n'
-    files=($(load_files "$components" "$component"))
+    local files=($(load_files "$components" "$component"))
     IFS="$OLDIFS"
 
     for file in "${files[@]}"; do
