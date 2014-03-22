@@ -40,6 +40,7 @@ verbose() {
 install() {
     local components="$1"
     local component="$2"
+    local flag
     OLDIFS="$IFS"
     IFS=$'\r\n'
     local files=($(load_files "$components" "$component"))
@@ -51,7 +52,12 @@ install() {
             verbose mkdir -p "$home/$dir"
         fi
 
-        verbose cp "$file" "$home/$file"
+        if [ -d "$file" ]; then
+            flag='-r'
+        else
+            flag=''
+        fi
+        verbose cp $flag "$file" "$home/$file"
     done
 }
 
