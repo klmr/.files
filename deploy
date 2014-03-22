@@ -59,7 +59,7 @@ echo
 read -n 1 -p 'Are you sure you want to proceed [y/n]? ' reply
 echo
 
-if [ $reply != 'y' ]; then
+if [ "$reply" != 'y' ]; then
     exit 1
 fi
 
