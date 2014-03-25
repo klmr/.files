@@ -19,6 +19,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'majutsushi/tagbar'
+Bundle 'techlivezheng/vim-plugin-minibufexpl'
 
 " Restore
 filetype on
