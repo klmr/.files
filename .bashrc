@@ -23,7 +23,7 @@ parse_git_branch() {
 }
 
 _mktemp() {
-    local tmpfile="${TMPDIR-/tmp}/psfile-$$"
+    local tmpfile="${TMPDIR-/tmp}/psfile-$$.XXX"
     local bin="$(command -v mktemp || echo echo)"
     local file="$($bin "$tmpfile")"
     rm -f "$file"
