@@ -22,37 +22,12 @@ parse_git_branch() {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (⭠ \1$(parse_git_dirty))/"
 }
 
-_mktemp() {
-    local tmpfile="${TMPDIR-/tmp}/psfile-$$.XXX"
-    local bin="$(command -v mktemp || echo echo)"
-    local file="$($bin "$tmpfile")"
-    rm -f "$file"
-    echo "$file"
-}
-
-PS_COUNT_FILE="$(_mktemp)"
-
-ps_count_inc() {
-    local PS_COUNT
-    if [[ -f "$PS_COUNT_FILE" ]]; then
-        let PS_COUNT=$(<"$PS_COUNT_FILE")+1
-    else
-        PS_COUNT=1
-    fi
-
-    echo $PS_COUNT | tee "$PS_COUNT_FILE"
-}
-
-ps_count_reset() {
-    rm -f "$PS_COUNT_FILE"
-}
-
 case "$TERM" in
     xterm-256color | xterm | screen)
         [ "$(whoami)" == "root" ] &&  COLOR_CODE=31 || COLOR_CODE=32;
-        PS1='$(ps_count_reset)${debian_chroot:+($debian_chroot)}\[\033[01;'$COLOR_CODE'm\]\[\033[00m\]\[\033[0;34m\]\w\[\033[00m\]$(parse_git_branch)
+        PS1='${PS_COUNT##*[$((PS_COUNT=0))-9]}${debian_chroot:+($debian_chroot)}\[\033[01;'$COLOR_CODE'm\]\[\033[00m\]\[\033[0;34m\]\w\[\033[00m\]$(parse_git_branch)
 ⟩⟩⟩ '
-        PS2='$(ps_count_inc) ⟩ '
+        PS2='$((++PS_COUNT)) ⟩ '
         ;;
     *)
         PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
