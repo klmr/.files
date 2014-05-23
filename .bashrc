@@ -2,6 +2,9 @@
 
 set -o vi
 
+# Not setting this causes vim errors with Unicode
+export LANG=en_GB.UTF-8
+
 # Some nice colours and a nice prompt
 
 export TERM=xterm-256color
