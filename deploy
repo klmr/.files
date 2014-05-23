@@ -34,7 +34,12 @@ verbose() {
     echo "  ${cmd[@]}"
     # This hocus-pocus is necessary to preserve quotes around arguments.
     # Otherwise file names with spaces would break.
-    "${cmd[@]}"
+    output="$("${cmd[@]}")"
+    if [[ "$output" != "" ]]; then
+        while read line; do
+            echo "    $line"
+        done <<< "$output"
+    fi
 }
 
 install() {
