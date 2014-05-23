@@ -52,12 +52,15 @@ install() {
             verbose mkdir -p "$home/$dir"
         fi
 
+        destination="$home/$file"
+
         if [ -d "$file" ]; then
-            flag='-r'
+            flag='-Rv'
+            destination="$(dirname "$destination")"
         else
             flag=''
         fi
-        verbose cp $flag "$file" "$home/$file"
+        verbose cp $flag "$file" "$destination"
     done
 }
 
