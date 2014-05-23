@@ -1,36 +1,29 @@
-options(pager = '/Users/rudolph/.R/pager.sh',
+options(pager = file.path(Sys.getenv('HOME'), '.R/pager.sh'),
         # Imperial College London
         repos = c(CRAN = 'http://cran.ma.imperial.ac.uk/'),
         menu.graphics = FALSE, # Seriously, WHAT THE FUCK, R!?
         devtools.name = 'Konrad Rudolph',
         devtools.desc.author = 'Konrad Rudolph <konrad.rudolph@gmail.com> [aut, cre]',
-        devtools.desc.license = 'file LICENSE',
-        xsourcePath = '~/Projects/R')
+        devtools.desc.license = 'file LICENSE')
 
-source('~/Projects/R/rcane/xsource.R')
-
-# Load individual source files {{{
-local <- '~/.R'
-sourcefiles <- list.files(local, pattern = '\\.[rR]$', full.names = TRUE)
-
-for (sourcefile in sourcefiles)
-    source(sourcefile, chdir = TRUE)
-
-rm(local, sourcefiles, sourcefile)
-# }}}
+# All the following is executed in its own environment, which will subsequently
+# be attached to the object search path.
 
 if (interactive()) {
-    qno <- function () quit('no')
+    local({
+        profile_env = new.env()
+        evalq({
+            # Load individual source files {{{
+            local_r_path <- file.path(Sys.getenv('HOME'), '.R')
+            sourcefiles <- list.files(local_r_path, pattern = '\\.[rR]$', full.names = TRUE)
 
-    # Pipe operator modified after Robert Sugar, e.g. at
-    # <http://markmail.org/thread/uygwsdulfvxlydlh>
-    `%|%` <- function (x, y) {
-        thecall <- match.call()
-        if (is.name(thecall$y) || is.function(thecall$y))
-            y(x)
-        else
-            eval(thecall$y, list(value = eval(thecall$x)))
-    }
+            for (sourcefile in sourcefiles)
+                source(sourcefile, chdir = TRUE, local = TRUE)
+            # }}}
+        }, envir = profile_env)
+
+        attach(profile_env, name = 'rprofile')
+    })
 
     library(colorout)
     setOutputColors256(verbose = FALSE)
@@ -40,14 +33,3 @@ if (interactive()) {
     .Last <- function ()
         try(savehistory(Sys.getenv('R_HISTFILE', '~/.Rhistory')))
 }
-
-# Purge the global environment
-
-allObjects <- ls()
-profileenv <- new.env()
-for (obj in allObjects)
-    profileenv[[obj]] <- get(obj)
-
-rm(list = allObjects)
-attach(profileenv, name = 'module:rprofile')
-rm(profileenv, allObjects, obj)
