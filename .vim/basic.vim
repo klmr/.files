@@ -17,7 +17,6 @@ set nowrap
 set guioptions-=T
 
 set autoindent
-set smartindent
 
 set nojoinspaces
 " }}}
