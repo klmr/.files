@@ -61,6 +61,8 @@ nnoremap * *<C-O>
 set list
 set listchars=tab:▸-,trail:·,extends:»,precedes:«,nbsp:⍽
 
+set colorcolumn=81
+
 set switchbuf=usetab,newtab
 " Speling {{{
 set spell
