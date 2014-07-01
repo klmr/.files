@@ -54,8 +54,11 @@ flags = [
 # For a C project, you would set this to 'c' instead of 'c++'.
 '-x',
 'c++',
+'-nostdincc++',
 '-isystem',
-'~/include'
+'~/include',
+'-isystem',
+'/nfs/research2/saezrodriguez/mike-software/usr/bin/../lib/gcc/x86_64-pc-linux-gnu/4.8.2'
 ]
 
 
@@ -79,6 +82,11 @@ def DirectoryOfThisScript():
 
 
 def MakeRelativePathsInFlagsAbsolute( flags, working_directory ):
+  def make_abs_path(path):
+    if path.startswith('~'):
+      return os.path.expanduser(path)
+    return os.path.join(working_directory, path)
+
   if not working_directory:
     return list( flags )
   new_flags = []
@@ -90,7 +98,7 @@ def MakeRelativePathsInFlagsAbsolute( flags, working_directory ):
     if make_next_absolute:
       make_next_absolute = False
       if not flag.startswith( '/' ):
-        new_flag = os.path.join( working_directory, flag )
+        new_flag = make_abs_path( flag )
 
     for path_flag in path_flags:
       if flag == path_flag:
@@ -99,7 +107,7 @@ def MakeRelativePathsInFlagsAbsolute( flags, working_directory ):
 
       if flag.startswith( path_flag ):
         path = flag[ len( path_flag ): ]
-        new_flag = path_flag + os.path.join( working_directory, path )
+        new_flag = path_flag + make_abs_path( path )
         break
 
     if new_flag:
@@ -109,7 +117,7 @@ def MakeRelativePathsInFlagsAbsolute( flags, working_directory ):
 
 def IsHeaderFile( filename ):
   extension = os.path.splitext( filename )[ 1 ]
-  return extension in [ '.h', '.hxx', '.hpp', '.hh' ]
+  return extension in [ '.h', '.hxx', '.h++', '.hpp', '.hh' ]
 
 
 def GetCompilationInfoForFile( filename ):
@@ -142,13 +150,6 @@ def FlagsForFile( filename, **kwargs ):
       compilation_info.compiler_flags_,
       compilation_info.compiler_working_dir_ )
 
-    # NOTE: This is just for YouCompleteMe; it's highly likely that your project
-    # does NOT need to remove the stdlib flag. DO NOT USE THIS IN YOUR
-    # ycm_extra_conf IF YOU'RE NOT 100% SURE YOU NEED IT.
-    try:
-      final_flags.remove( '-stdlib=libc++' )
-    except ValueError:
-      pass
   else:
     relative_to = DirectoryOfThisScript()
     final_flags = MakeRelativePathsInFlagsAbsolute( flags, relative_to )
