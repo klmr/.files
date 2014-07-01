@@ -1,3 +1,11 @@
+# This file is sometimes invoked twice. I don’t know why, but to prevent it, we bail out.
+
+if [ -z ${BASHRC_LOADED+x} ]; then
+    export BASHRC_LOADED=1
+else
+    return 0
+fi
+
 # Set up terminal
 
 set -o vi
