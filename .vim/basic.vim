@@ -99,6 +99,7 @@ autocmd FileType cpp inoremap {<CR>  {<CR>}<Esc>O
 
 let vimrplugin_insert_mode_cmds = 0
 let vimrplugin_assign_map = "<C-j>"
+let vimrplugin_r_path = "~/.R/launcher.sh"
 
 let g:tex_flavor = "latex"
 
