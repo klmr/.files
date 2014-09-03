@@ -1,11 +1,3 @@
-# This file is sometimes invoked twice. I don’t know why, but to prevent it, we bail out.
-
-if [ -z ${BASHRC_LOADED+x} ]; then
-    export BASHRC_LOADED=1
-else
-    return 0
-fi
-
 # Set up terminal
 
 set -o vi
@@ -34,7 +26,7 @@ parse_git_branch() {
 }
 
 case "$TERM" in
-    xterm-256color | xterm | screen)
+    xterm-256color | xterm | screen-256color | screen)
         [ "$(whoami)" == "root" ] &&  COLOR_CODE=31 || COLOR_CODE=32;
         PS1='${PS_COUNT##*[$((PS_COUNT=0))-9]}${debian_chroot:+($debian_chroot)}\[\033[01;'$COLOR_CODE'm\]\[\033[00m\]\[\033[0;34m\]\w\[\033[00m\]$(parse_git_branch)
 ⟩⟩⟩ '
