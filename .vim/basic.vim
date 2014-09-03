@@ -17,7 +17,6 @@ set nowrap
 set guioptions-=T
 
 set autoindent
-set smartindent
 
 set nojoinspaces
 " }}}
@@ -61,6 +60,10 @@ nnoremap * *<C-O>
 
 set list
 set listchars=tab:▸-,trail:·,extends:»,precedes:«,nbsp:⍽
+
+set formatoptions=acnqt
+
+set colorcolumn=81
 
 set switchbuf=usetab,newtab
 " Speling {{{
