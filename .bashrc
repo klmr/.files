@@ -26,7 +26,7 @@ parse_git_branch() {
 }
 
 case "$TERM" in
-    xterm-256color | xterm | screen)
+    xterm-256color | xterm | screen-256color | screen)
         [ "$(whoami)" == "root" ] &&  COLOR_CODE=31 || COLOR_CODE=32;
         PS1='${PS_COUNT##*[$((PS_COUNT=0))-9]}${debian_chroot:+($debian_chroot)}\[\033[01;'$COLOR_CODE'm\]\[\033[00m\]\[\033[0;34m\]\w\[\033[00m\]$(parse_git_branch)
 ⟩⟩⟩ '
