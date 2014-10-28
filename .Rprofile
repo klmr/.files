@@ -32,6 +32,9 @@ if (interactive()) {
     library(setwidth)
     library(vimcom)
 
+    # Load `modules` last to make `modules::?` findable.
+    options(defaultPackages = c(getOption('defaultPackages'), 'modules'))
+
     .Last <- function ()
         try(savehistory(Sys.getenv('R_HISTFILE', '~/.Rhistory')))
 }
