@@ -30,7 +30,7 @@ if (interactive()) {
     library(colorout)
     setOutputColors256(verbose = FALSE)
     library(setwidth)
-    library(vimcom.plus)
+    library(vimcom)
 
     .Last <- function ()
         try(savehistory(Sys.getenv('R_HISTFILE', '~/.Rhistory')))
