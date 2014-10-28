@@ -6,6 +6,8 @@ options(pager = file.path(Sys.getenv('HOME'), '.R/pager.sh'),
         devtools.desc.author = 'Konrad Rudolph <konrad.rudolph@gmail.com> [aut, cre]',
         devtools.desc.license = 'file LICENSE')
 
+.libPaths('~/R-dev')
+
 # All the following is executed in its own environment, which will subsequently
 # be attached to the object search path.
 
