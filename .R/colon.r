@@ -4,7 +4,7 @@
     else if (inherits(a, 'factor'))
         interaction(a, b, sep = ':')
     else
-        structure(seq(a, b), class = 'xrange')
+        structure(seq(a, b), class = c('xrange', 'integer'))
 }
 
 print.xrange = function (x)
