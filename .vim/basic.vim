@@ -61,7 +61,7 @@ nnoremap * *<C-O>
 set list
 set listchars=tab:▸-,trail:·,extends:»,precedes:«,nbsp:⍽
 
-set formatoptions=acnqt
+set formatoptions=tcq
 
 set colorcolumn=81
 
@@ -90,6 +90,7 @@ autocmd FileType text set wrap linebreak
 autocmd BufRead README set wrap linebreak
 autocmd FileType markdown set wrap linebreak
 autocmd FileType markdown setlocal textwidth=80
+autocmd FileType markdown setlocal formatoptions=acnqt
 
 autocmd FileType cpp nnoremap <silent> <leader>b :make %:t:r<CR>
 autocmd FileType cpp inoremap {<CR>  {<CR>}<Esc>O
