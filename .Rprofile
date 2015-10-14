@@ -38,4 +38,6 @@ if (interactive()) {
 
     .Last <- function ()
         try(savehistory(Sys.getenv('R_HISTFILE', '~/.Rhistory')))
+
+    message(R.version$version.string)
 }
