@@ -109,8 +109,9 @@ let vimrplugin_vim_wd = 1
 let vimrplugin_r_path = "~/.R/launcher.sh"
 
 let g:tex_flavor = "latex"
+let g:tex_no_error = 1
 
-autocmd FileType tex set wrap linebreak
+autocmd FileType tex set wrap linebreak textwidth=80
 
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 
