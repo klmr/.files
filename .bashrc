@@ -40,6 +40,8 @@ esac
 # Set up commonly used applications
 
 export EDITOR=vim
+export HISTCONTROL=ignoreboth
+export HISTIGNORE='ls:l:pwd:exit:history'
 
 # Import aliases etc.
 
