@@ -84,6 +84,8 @@ let g:is_bash=1
 autocmd FileType make setlocal noexpandtab
 
 autocmd BufNewFile,BufRead *.md set filetype=markdown
+autocmd BufNewFile,BufRead *.r.brew set filetype=r
+autocmd BufNewFile,BufRead *.rmd.brew set filetype=rmd
 
 autocmd FileType html set wrap linebreak
 autocmd FileType text set wrap linebreak
