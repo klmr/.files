@@ -96,3 +96,13 @@ for component in "${local_components[@]}"; do
     install "$components" "$component"
     echo
 done
+
+# Apply patches, if applicable
+
+cwd="$(pwd)"
+cd "$home"
+for patch in "$cwd"/patches/*.patch; do
+    echo "Applying patch $patch …"
+    patch < "$patch"
+    echo
+done
