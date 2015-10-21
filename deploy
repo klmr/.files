@@ -103,6 +103,6 @@ cwd="$(pwd)"
 cd "$home"
 for patch in "$cwd"/patches/*.patch; do
     echo "Applying patch $patch …"
-    patch < "$patch"
+    patch -p0 < "$patch"
     echo
 done
