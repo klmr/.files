@@ -1,6 +1,5 @@
 " Load general configuration {{{
-let s:this_path = expand('<sfile>:p:h')
-let s:vim_path = s:this_path . '/.vim'
+let s:vim_path = '~/.vim'
 
 exec 'source ' . s:vim_path . '/basic.vim'
 " }}}
