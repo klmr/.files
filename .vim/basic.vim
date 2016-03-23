@@ -108,6 +108,20 @@ let vimrplugin_assign_map = "<C-j>"
 let vimrplugin_vim_wd = 1
 let vimrplugin_r_path = "~/.R/launcher.sh"
 
+let R_path = "~/.R/"
+let R_args = ['--quiet']
+let R_silent_term = 1
+let R_vsplit = 1
+let R_in_buffer = 0
+let R_applescript = 0
+let R_tmux_split = 1
+
+" The following doesn’t work
+"set <M-->=-
+"let R_assign_map = "<M-->"
+let R_assign = 0
+let R_rmd_environment = "new.env(parent = emptyenv())"
+
 let g:tex_flavor = "latex"
 let g:tex_no_error = 1
 
