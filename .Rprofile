@@ -32,7 +32,13 @@ if (interactive()) {
     library(colorout)
     setOutputColors256(verbose = FALSE)
     library(setwidth)
-    library(vimcom)
+
+    if (Sys.getenv('NVIMR_TMPDIR') != '') {
+        options(nvimcom.verbose = 1)
+        library(nvimcom)
+    } else {
+        library(vimcom)
+    }
 
     # Load `modules` last to make `modules::?` findable.
     options(defaultPackages = c(getOption('defaultPackages'), 'modules'))
