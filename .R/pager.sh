@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-vim -c 'set ft=rdoc' -
+vim=$(which nvim || which vim)
+$vim -c 'set ft=rdoc' -
