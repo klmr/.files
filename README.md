@@ -12,6 +12,15 @@ components specified therein. Note that this will override files in the home
 directory without questions asked – proceed with extreme caution and have a
 backup handy!
 
+## Installation
+
+Run
+
+```bash
+git clone git@github.com:klmr/.files.git
+git submodule update --init
+```
+
 ## Configuration & deployment
 
 To deploy the files to the local home directory, run `./deploy`. This will read
