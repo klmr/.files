@@ -77,6 +77,7 @@ read -n 1 -p 'Are you sure you want to proceed [y/n]? ' reply
 echo
 
 if [ "$reply" != 'y' ]; then
+    echo 'Aborted.'
     exit 1
 fi
 
