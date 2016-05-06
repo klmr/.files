@@ -54,3 +54,9 @@ done
 if [ -f /usr/local/etc/bash_completion ]; then
     source /usr/local/etc/bash_completion
 fi
+
+if [ -d /usr/local/etc/bash_completion.d ]; then
+    for completion in /usr/local/etc/bash_completion.d/*; do
+        source "$completion"
+    done
+fi
