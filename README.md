@@ -35,6 +35,16 @@ two configuration files to determine which config files to install:
    machine specific, it is not part of `origin/master` (but a local branch may
    be appropriate?). However, this repository has an
    [`example.conf`](example.conf) which can be used instead.
+* In addition, machine-specific patch files are read from `./patches`. Files in
+  this directory are not under version control and need to be maintained
+  separately. Patch files should be created using the conventional workflow
+  using the `diff` utility.
+
+To install just a single component, you may also run
+
+```bash
+./deploy <(echo COMPONENT)
+```
 
 
 ## To do
