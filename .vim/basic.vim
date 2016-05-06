@@ -77,6 +77,7 @@ let g:ycm_warning_symbol = '⚠︎ '
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts=1
 " }}}
 
 " Filetype settings {{{
