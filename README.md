@@ -53,4 +53,3 @@ Modules to add:
 
  * Vim plugin modules (?)
  * `lessrc`, `ackrc` etc.
- * Git/Mercurial config (but without user details?!)
