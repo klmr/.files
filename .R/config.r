@@ -20,6 +20,7 @@ if (interactive()) {
             # Load individual source files {{{
             local_r_path <- file.path(Sys.getenv('HOME'), '.R')
             sourcefiles <- list.files(local_r_path, pattern = '\\.[rR]$', full.names = TRUE)
+            sourcefiles <- sourcefiles[-grep('config\\.[rR]', sourcefiles)]
 
             for (sourcefile in sourcefiles)
                 source(sourcefile, chdir = TRUE, local = TRUE)
