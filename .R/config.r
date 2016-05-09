@@ -17,9 +17,9 @@ if (interactive()) {
     local({
         # Load individual source files
         profile_env = new.env()
-        local_r_path <- file.path(Sys.getenv('HOME'), '.R')
-        sourcefiles <- list.files(local_r_path, pattern = '\\.[rR]$', full.names = TRUE)
-        sourcefiles <- sourcefiles[-grep('config\\.[rR]', sourcefiles)]
+        local_r_path = file.path(Sys.getenv('HOME'), '.R')
+        sourcefiles = list.files(local_r_path, pattern = '\\.[rR]$', full.names = TRUE)
+        sourcefiles = sourcefiles[-grep('config\\.[rR]', sourcefiles)]
 
         for (sourcefile in sourcefiles)
             # Ignore errors in individual files.
@@ -42,7 +42,7 @@ if (interactive()) {
     # Load `modules` last to make `modules::?` findable.
     options(defaultPackages = c(getOption('defaultPackages'), 'modules'))
 
-    .Last <- function ()
+    .Last = function ()
         try(savehistory(Sys.getenv('R_HISTFILE', '~/.Rhistory')))
 
     message(R.version$version.string)
