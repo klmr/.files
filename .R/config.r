@@ -25,7 +25,7 @@ if (interactive()) {
             # Ignore errors in individual files.
             try(eval(parse(sourcefile, encoding = 'UTF-8'), envir = profile_env))
 
-        attach(profile_env, name = 'rprofile')
+        attach(profile_env, name = 'rprofile', warn.conflicts = FALSE)
 
         library(colorout)
         setOutputColors256(verbose = FALSE)
