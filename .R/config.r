@@ -41,6 +41,11 @@ if (interactive()) {
         message(R.version$version.string)
     })
 
+    .First.sys = function () {
+        base::.First.sys()
+        setOutputColors256(verbose = FALSE)
+    }
+
     .Last = function ()
         try(savehistory(Sys.getenv('R_HISTFILE', '~/.Rhistory')))
 }
