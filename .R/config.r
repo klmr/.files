@@ -27,19 +27,16 @@ if (interactive()) {
 
         attach(profile_env, name = 'rprofile', warn.conflicts = FALSE)
 
-        library(colorout)
-        setOutputColors256(verbose = FALSE)
-        library(setwidth)
-
-        if (Sys.getenv('NVIMR_TMPDIR') != '') {
+        vimcom = if (Sys.getenv('NVIMR_TMPDIR') != '') {
             options(nvimcom.verbose = 1)
-            library(nvimcom)
+            'nvimcom'
         } else {
-            library(vimcom)
+            'vimcom'
         }
 
         # Load `modules` last to make `modules::?` findable.
-        options(defaultPackages = c(getOption('defaultPackages'), 'setwidth', 'modules'))
+        packages = c(vimcom, 'setwidth', 'colorout', 'modules')
+        options(defaultPackages = c(getOption('defaultPackages'), packages))
 
         message(R.version$version.string)
     })
