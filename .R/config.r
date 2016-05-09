@@ -26,24 +26,24 @@ if (interactive()) {
             try(eval(parse(sourcefile, encoding = 'UTF-8'), envir = profile_env))
 
         attach(profile_env, name = 'rprofile')
+
+        library(colorout)
+        setOutputColors256(verbose = FALSE)
+        library(setwidth)
+
+        if (Sys.getenv('NVIMR_TMPDIR') != '') {
+            options(nvimcom.verbose = 1)
+            library(nvimcom)
+        } else {
+            library(vimcom)
+        }
+
+        # Load `modules` last to make `modules::?` findable.
+        options(defaultPackages = c(getOption('defaultPackages'), 'setwidth', 'modules'))
+
+        .Last = function ()
+            try(savehistory(Sys.getenv('R_HISTFILE', '~/.Rhistory')))
+
+        message(R.version$version.string)
     })
-
-    library(colorout)
-    setOutputColors256(verbose = FALSE)
-    library(setwidth)
-
-    if (Sys.getenv('NVIMR_TMPDIR') != '') {
-        options(nvimcom.verbose = 1)
-        library(nvimcom)
-    } else {
-        library(vimcom)
-    }
-
-    # Load `modules` last to make `modules::?` findable.
-    options(defaultPackages = c(getOption('defaultPackages'), 'modules'))
-
-    .Last = function ()
-        try(savehistory(Sys.getenv('R_HISTFILE', '~/.Rhistory')))
-
-    message(R.version$version.string)
 }
