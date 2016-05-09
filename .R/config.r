@@ -41,9 +41,9 @@ if (interactive()) {
         # Load `modules` last to make `modules::?` findable.
         options(defaultPackages = c(getOption('defaultPackages'), 'setwidth', 'modules'))
 
-        .Last = function ()
-            try(savehistory(Sys.getenv('R_HISTFILE', '~/.Rhistory')))
-
         message(R.version$version.string)
     })
+
+    .Last = function ()
+        try(savehistory(Sys.getenv('R_HISTFILE', '~/.Rhistory')))
 }
