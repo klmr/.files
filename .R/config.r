@@ -15,17 +15,15 @@ options(pager = file.path(Sys.getenv('HOME'), '.R/pager.sh'),
 
 if (interactive()) {
     local({
+        # Load individual source files
         profile_env = new.env()
-        evalq({
-            # Load individual source files {{{
-            local_r_path <- file.path(Sys.getenv('HOME'), '.R')
-            sourcefiles <- list.files(local_r_path, pattern = '\\.[rR]$', full.names = TRUE)
-            sourcefiles <- sourcefiles[-grep('config\\.[rR]', sourcefiles)]
+        local_r_path <- file.path(Sys.getenv('HOME'), '.R')
+        sourcefiles <- list.files(local_r_path, pattern = '\\.[rR]$', full.names = TRUE)
+        sourcefiles <- sourcefiles[-grep('config\\.[rR]', sourcefiles)]
 
-            for (sourcefile in sourcefiles)
-                source(sourcefile, chdir = TRUE, local = TRUE)
-            # }}}
-        }, envir = profile_env)
+        for (sourcefile in sourcefiles)
+            # Ignore errors in individual files.
+            try(eval(parse(sourcefile, encoding = 'UTF-8'), envir = profile_env))
 
         attach(profile_env, name = 'rprofile')
     })
