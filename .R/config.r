@@ -41,8 +41,7 @@ if (interactive()) {
         message(R.version$version.string)
     })
 
-    .First.sys = function () {
-        base::.First.sys()
+    .post_package_loading_hook = function () {
         setOutputColors256(verbose = FALSE)
     }
 
