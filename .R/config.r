@@ -2,7 +2,7 @@ options(pager = file.path(Sys.getenv('HOME'), '.R/pager.sh'),
         # Imperial College London
         repos = c(CRAN = 'http://cran.ma.imperial.ac.uk/'),
         menu.graphics = FALSE, # Seriously, WHAT THE FUCK, R!?
-        import.path = '~/R/modules',
+        import.path = '~/.R/modules',
         devtools.name = 'Konrad Rudolph',
         devtools.desc.author = 'Konrad Rudolph <konrad.rudolph@gmail.com> [aut, cre]',
         devtools.desc.license = 'file LICENSE',
