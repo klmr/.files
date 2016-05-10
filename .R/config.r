@@ -27,15 +27,8 @@ if (interactive()) {
 
         attach(profile_env, name = 'rprofile', warn.conflicts = FALSE)
 
-        vimcom = if (Sys.getenv('NVIMR_TMPDIR') != '') {
-            options(nvimcom.verbose = 1)
-            'nvimcom'
-        } else {
-            'vimcom'
-        }
-
         # Load `modules` last to make `modules::?` findable.
-        packages = c(vimcom, 'setwidth', 'colorout', 'modules')
+        packages = c('setwidth', 'colorout', 'modules')
         options(defaultPackages = c(getOption('defaultPackages'), packages))
 
         message(R.version$version.string)
