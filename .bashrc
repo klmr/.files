@@ -60,3 +60,18 @@ if [ -d /usr/local/etc/bash_completion.d ]; then
         source "$completion"
     done
 fi
+
+# Collect remaining paths
+
+if [ -d /etc/paths.d ]; then
+    for file in /etc/paths.d/*; do
+        paths="$(< "$file" tr '\n' ':' | sed 's/:$//')"
+        if [[ "$PATH" == '' ]]; then
+            PATH="$paths"
+        else
+            PATH="$PATH:$paths"
+        fi
+    done
+
+    export PATH
+fi
