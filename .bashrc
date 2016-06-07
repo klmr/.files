@@ -51,14 +51,8 @@ done
 
 # Import Bash completion
 
-if [ -f /usr/local/etc/bash_completion ]; then
-    source /usr/local/etc/bash_completion
-fi
-
-if [ -d /usr/local/etc/bash_completion.d ]; then
-    for completion in /usr/local/etc/bash_completion.d/*; do
-        source "$completion"
-    done
+if [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
+    source $(brew --prefix)/share/bash-completion/bash_completion
 fi
 
 # Collect remaining paths
