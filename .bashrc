@@ -69,3 +69,6 @@ if [ -d /etc/paths.d ]; then
 
     export PATH
 fi
+
+# Manual override
+export PATH="$HOME/bin:$PATH"
