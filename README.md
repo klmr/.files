@@ -17,7 +17,8 @@ backup handy!
 Run
 
 ```bash
-git clone git@github.com:klmr/.files.git
+git clone git@github.com:klmr/.files.git ~/.files
+cd ~/.files
 git submodule update --init
 ```
 
