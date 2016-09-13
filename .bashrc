@@ -51,7 +51,7 @@ done
 
 # Import Bash completion
 
-if [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
+if [ -f $(brew --prefix 2> /dev/null)/share/bash-completion/bash_completion ]; then
     source $(brew --prefix)/share/bash-completion/bash_completion
 fi
 
