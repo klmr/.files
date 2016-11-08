@@ -108,6 +108,7 @@ let R_in_buffer = 0
 let R_applescript = 0
 let R_tmux_split = 1
 let R_nvim_wd = 1
+let R_tmpdir = "~/.tmp/Nvim-R"
 
 " The following doesn’t work
 "set <M-->=-
