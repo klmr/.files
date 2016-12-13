@@ -99,18 +99,8 @@ autocmd FileType markdown setlocal formatoptions=tcq
 autocmd FileType cpp nnoremap <silent> <leader>b :make %:t:r<CR>
 autocmd FileType cpp inoremap {<CR>  {<CR>}<Esc>O
 
-" Lots of editors like Eclipse or R-Studio do this. I find it annoying.
-"autocmd FileType cpp inoremap () ()<Esc>i
-"autocmd FileType cpp inoremap {} {}<Esc>i
-"autocmd FileType cpp inoremap [] []<Esc>i
-"autocmd FileType cpp inoremap <> <><Esc>i
-
-let vimrplugin_insert_mode_cmds = 0
-let vimrplugin_assign_map = "<C-j>"
-let vimrplugin_vim_wd = 1
-let vimrplugin_r_path = "~/.R/launcher.sh"
-
 let R_path = "~/.R/"
+let R_app = "launcher.sh"
 let R_args = ['--quiet']
 let R_silent_term = 1
 let R_vsplit = 1
@@ -118,6 +108,7 @@ let R_in_buffer = 0
 let R_applescript = 0
 let R_tmux_split = 1
 let R_nvim_wd = 1
+let R_tmpdir = "~/.tmp/Nvim-R"
 
 " The following doesn’t work
 "set <M-->=-
