@@ -116,6 +116,8 @@ let R_tmpdir = "~/.tmp/Nvim-R"
 let R_assign = 0
 let R_rmd_environment = "new.env(parent = emptyenv())"
 
+autocmd VimResized * let R_rconsole_width = winwidth(0) / 2
+
 let g:tex_flavor = "latex"
 let g:tex_no_error = 1
 
