@@ -1,6 +1,6 @@
 options(pager = file.path(Sys.getenv('HOME'), '.R/pager.sh'),
         # Imperial College London
-        repos = c(CRAN = 'http://cran.ma.imperial.ac.uk/'),
+        repos = c(CRAN = 'https://cran.ma.imperial.ac.uk/'),
         menu.graphics = FALSE, # Seriously, WHAT THE FUCK, R!?
         import.path = '~/.R/modules',
         devtools.name = 'Konrad Rudolph',
