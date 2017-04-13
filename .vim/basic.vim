@@ -34,6 +34,7 @@ filetype indent on
 
 " Syntax colouring {{{
 
+set t_Co=256
 set bg=dark
 let g:solarized_visibility="low"
 colorscheme solarized
@@ -49,6 +50,11 @@ set undodir=~/.vim/undo
 
 set autoread
 set autowrite
+
+set title
+"set mouse=a
+
+set laststatus=2
 
 nnoremap <silent> <leader>v V`]
 vnoremap < <gv
