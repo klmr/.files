@@ -102,6 +102,7 @@ done
 
 cwd="$(pwd)"
 cd "$home"
+[ -e "$cwd"/patches/*.patch ] && \
 for patch in "$cwd"/patches/*.patch; do
     echo "Applying patch $patch …"
     patch -p0 < "$patch"
