@@ -22,7 +22,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'https://bitbucket.org/johanneskoester/snakemake.git', {'rtp': 'misc/vim/'}
+Plugin 'https://bitbucket.org/snakemake/snakemake', {'rtp': 'misc/vim/'}
 
 " Restore
 filetype on
