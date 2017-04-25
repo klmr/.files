@@ -22,6 +22,7 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'Valloric/MatchTagAlways'
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
+Bundle 'https://bitbucket.org/johanneskoester/snakemake.git', {'rtp': 'misc/vim/'}
 
 " Restore
 filetype on
