@@ -3,26 +3,26 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'gmarik/Vundle.vim'
-Bundle 'groenewege/vim-less'
-Bundle 'jalvesaq/R-Vim-runtime'
-Bundle 'jalvesaq/Nvim-R'
-Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'kien/ctrlp.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'scrooloose/syntastic'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-markdown'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'Valloric/MatchTagAlways'
-Bundle 'vim-airline/vim-airline'
-Bundle 'vim-airline/vim-airline-themes'
-Bundle 'https://bitbucket.org/johanneskoester/snakemake.git', {'rtp': 'misc/vim/'}
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'groenewege/vim-less'
+Plugin 'jalvesaq/R-Vim-runtime'
+Plugin 'jalvesaq/Nvim-R'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'kien/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-markdown'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/MatchTagAlways'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'https://bitbucket.org/johanneskoester/snakemake.git', {'rtp': 'misc/vim/'}
 
 " Restore
 filetype on
