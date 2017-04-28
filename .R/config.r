@@ -6,7 +6,10 @@ options(pager = file.path(Sys.getenv('HOME'), '.R/pager.sh'),
         devtools.name = 'Konrad Rudolph',
         devtools.desc.author = 'Konrad Rudolph <konrad.rudolph@gmail.com> [aut, cre]',
         devtools.desc.license = 'file LICENSE',
-        devtools.desc.suggests = c('knitr', 'testthat'))
+        devtools.desc.suggests = c('knitr', 'testthat'),
+        warnPartialMatchArgs = TRUE,
+        warnPartialMatchAttr = TRUE,
+        warnPartialMatchDollar = TRUE)
 
 .libPaths('~/.R/packages')
 
