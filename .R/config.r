@@ -1,15 +1,17 @@
-options(pager = file.path(Sys.getenv('HOME'), '.R/pager.sh'),
-        # Imperial College London
-        repos = c(CRAN = 'https://cran.ma.imperial.ac.uk/'),
-        menu.graphics = FALSE, # Seriously, WHAT THE FUCK, R!?
-        import.path = '~/.R/modules',
-        devtools.name = 'Konrad Rudolph',
-        devtools.desc.author = 'Konrad Rudolph <konrad.rudolph@gmail.com> [aut, cre]',
-        devtools.desc.license = 'file LICENSE',
-        devtools.desc.suggests = c('knitr', 'testthat'),
-        warnPartialMatchArgs = TRUE,
-        warnPartialMatchAttr = TRUE,
-        warnPartialMatchDollar = TRUE)
+options(
+    pager = file.path(Sys.getenv('HOME'), '.R/pager.sh'),
+    # Imperial College London
+    repos = c(CRAN = 'https://cran.ma.imperial.ac.uk/'),
+    menu.graphics = FALSE, # Seriously, WHAT THE FUCK, R!?
+    import.path = '~/.R/modules',
+    devtools.name = 'Konrad Rudolph',
+    devtools.desc.author = 'Konrad Rudolph <konrad.rudolph@gmail.com> [aut, cre]',
+    devtools.desc.license = 'file LICENSE',
+    devtools.desc.suggests = c('knitr', 'testthat'),
+    warnPartialMatchArgs = TRUE,
+    warnPartialMatchAttr = TRUE,
+    warnPartialMatchDollar = TRUE
+)
 
 .libPaths('~/.R/packages')
 
