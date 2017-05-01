@@ -33,7 +33,7 @@ if (interactive()) {
         attach(profile_env, name = 'rprofile', warn.conflicts = FALSE)
 
         # Load `modules` last to make `modules::?` findable.
-        packages = c('setwidth', 'colorout', 'modules')
+        packages = c('colorout', 'modules')
         options(defaultPackages = c(getOption('defaultPackages'), packages))
 
         message(R.version$version.string)
