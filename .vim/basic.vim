@@ -109,7 +109,6 @@ let R_path = "~/.R/"
 let R_app = "launcher.sh"
 let R_args = ['--quiet']
 let R_silent_term = 1
-let R_vsplit = 1
 let R_in_buffer = 0
 let R_applescript = 0
 let R_tmux_split = 1
