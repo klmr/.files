@@ -51,8 +51,8 @@ done
 
 # Import Bash completion
 
-if [ -f $(brew --prefix 2> /dev/null)/share/bash-completion/bash_completion ]; then
-    source $(brew --prefix)/share/bash-completion/bash_completion
+if [ -f $(brew --prefix 2> /dev/null)/etc/bash_completion ]; then
+    source $(brew --prefix)/etc/bash_completion
 fi
 
 # Collect remaining paths
