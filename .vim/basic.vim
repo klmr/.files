@@ -78,8 +78,10 @@ set spelllang=en_gb
 " }}}
 
 let g:ycm_confirm_extra_conf = 0
-let g:ycm_error_symbol = '⚡︎ '
-let g:ycm_warning_symbol = '⚠︎ '
+" These would be nice to have but they introduce rendering bugs in NeoVim ≤0.2.0.
+"let g:ycm_error_symbol = '⚡︎'
+"let g:ycm_warning_symbol = '⚠︎'
+"let g:ycm_enable_diagnostic_signs = 0
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
 let g:airline#extensions#tabline#enabled = 1
