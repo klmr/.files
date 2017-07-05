@@ -107,6 +107,8 @@ autocmd FileType markdown setlocal formatoptions=tcq
 autocmd FileType cpp nnoremap <silent> <leader>b :make %:t:r<CR>
 autocmd FileType cpp inoremap {<CR>  {<CR>}<Esc>O
 
+autocmd FileType cpp setlocal commentstring=//\ %s
+
 let R_path = "~/.R/"
 let R_app = "launcher.sh"
 let R_args = ['--quiet']
