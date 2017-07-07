@@ -6,8 +6,6 @@ set -o vi
 export LANG=en_GB.UTF-8
 
 # Some nice colours and a nice prompt
-
-export TERM=xterm-256color
 export CLICOLOR=cons25
 
 # For `tree` etc.:
