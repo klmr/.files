@@ -53,6 +53,12 @@ if [ -f $(brew --prefix 2> /dev/null)/etc/bash_completion ]; then
     source $(brew --prefix)/etc/bash_completion
 fi
 
+if [ -d $(brew --prefix 2> /dev/null)/etc/bash_completion.d ]; then
+    for file in $(brew --prefix)/etc/bash_completion.d/*; do
+        source "$file"
+    done
+fi
+
 # Collect remaining paths
 
 if [ -d /etc/paths.d ]; then
