@@ -27,8 +27,8 @@ case "$TERM" in
     xterm-256color | xterm | screen-256color | screen)
         [ "$(whoami)" == "root" ] &&  COLOR_CODE=31 || COLOR_CODE=32;
         PS1='${PS_COUNT##*[$((PS_COUNT=0))-9]}${debian_chroot:+($debian_chroot)}\[\033[01;'$COLOR_CODE'm\]\[\033[00m\]\[\033[0;34m\]\w\[\033[00m\]$(parse_git_branch)
-\e[38;5;19m⟩\e[38;5;20m⟩\e[38;5;21m⟩\e[0m '
-        PS2='\e[38;5;19m$((++PS_COUNT)) \e[38;5;21m⟩\e[0m '
+⟩⟩⟩ '
+        PS2='$((++PS_COUNT)) ⟩ '
         ;;
     *)
         PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
