@@ -37,7 +37,7 @@ esac
 
 # Set up commonly used applications
 
-export EDITOR=vim
+export EDITOR=nvim
 export HISTCONTROL=ignoreboth
 export HISTIGNORE='ls:l:pwd:exit:history'
 
