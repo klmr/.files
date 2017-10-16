@@ -1,1 +1,1 @@
-.R/config.r
+.config/R/init.r
