@@ -1,9 +1,9 @@
 options(
-    pager = file.path(Sys.getenv('HOME'), '.R/pager.sh'),
+    pager = path.expand('~/.config/R/pager'),
     # Imperial College London
     repos = c(CRAN = 'https://cran.ma.imperial.ac.uk/'),
     menu.graphics = FALSE, # Seriously, WHAT THE FUCK, R!?
-    import.path = '~/.R/modules',
+    import.path = '~/.config/R/modules',
     devtools.name = 'Konrad Rudolph',
     devtools.desc.author = 'Konrad Rudolph <konrad.rudolph@gmail.com> [aut, cre]',
     devtools.desc.license = 'file LICENSE',
@@ -13,7 +13,7 @@ options(
     warnPartialMatchDollar = TRUE
 )
 
-.libPaths('~/.R/packages')
+.libPaths('~/.config/R/packages')
 
 # All the following is executed in its own environment, which will subsequently
 # be attached to the object search path.
@@ -21,12 +21,10 @@ options(
 local({
     # Load individual source files
     profile_env = new.env()
-    local_r_path = file.path(Sys.getenv('HOME'), '.R')
-    config_path = c(local_r_path,
-                    if (interactive()) file.path(local_r_path, 'interactive'))
-    source_files = list.files(config_path,
-                             pattern = '\\.[rR]$', full.names = TRUE)
-    source_files = source_files[-grep('config\\.[rR]', source_files)]
+    local_r_path = '~/.config/R'
+    config_path = c(local_r_path, if (interactive()) file.path(local_r_path, 'interactive'))
+    source_files = list.files(config_path, pattern = '\\.[rR]$', full.names = TRUE)
+    source_files = source_files[-grep('init\\.[rR]', source_files)]
 
     for (source_file in source_files)
         # Ignore errors in individual files.
