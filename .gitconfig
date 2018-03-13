@@ -18,9 +18,6 @@
     tdiff = diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
 [color]
 	ui = true
-[github]
-	user = klmr
-	password = !security 2>&1 >/dev/null find-internet-password -gs github.com | ruby -e 'print $1 if STDIN.gets =~ /^password: \\\"(.*)\\\"$/'
 [push]
 	default = simple
 [merge]

@@ -65,7 +65,12 @@ install() {
         else
             flag=''
         fi
-        verbose cp $flag "$file" "$destination"
+
+        if [ -L "$file" ]; then
+            verbose ln -Ffs "$(readlink "$file")" "$destination"
+        else
+            verbose cp $flag "$file" "$destination"
+        fi
     done
 }
 
