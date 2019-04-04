@@ -1,1 +1,0 @@
-.vim/basic.vim
