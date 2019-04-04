@@ -1,4 +1,7 @@
+runtime legacy.vim
 runtime plugins.vim
+
+set modeline
 
 set shiftwidth=4
 set tabstop=4
@@ -26,9 +29,11 @@ set undofile
 set autoread
 set autowrite
 
-set list
-" FIXME: The following causes Vim to fail to display tabs properly
-" set listchars="tab:→ ,trail:·,extends:»,precedes,«,nbsp:⍽"
+set splitbelow
+set splitright
+
+" set list
+" set listchars=tab:→ ,trail:·,extends:»,precedes,«,nbsp:⍽
 
 set textwidth=80
 set colorcolumn=+1,+41
@@ -37,5 +42,14 @@ highlight ColorColumn ctermbg=24
 set spell
 set spelllang=en_gb
 
+" Force guicursor
+set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
+
+set conceallevel=1
+
 runtime shortcuts.vim
 runtime ft.vim
+
+if has('nvim')
+    tnoremap <Esc> <C-\><C-n>
+endif
