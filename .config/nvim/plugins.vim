@@ -14,6 +14,3 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'w0rp/ale'
 call plug#end()
-
-let g:ale_sign_error = '❌ '
-let g:ale_sign_warning = '⚠️ '
