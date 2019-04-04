@@ -5,6 +5,7 @@ Plug 'jalvesaq/R-Vim-runtime'
 Plug 'jalvesaq/Nvim-R'
 Plug 'kien/ctrlp.vim'
 Plug 'klmr/vim-snakemake'
+Plug 'micha/vim-colors-solarized'
 Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'}
 Plug 'plasticboy/vim-markdown'
 Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
