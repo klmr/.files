@@ -1,4 +1,8 @@
-# Set up terminal
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 
 set -o vi
 
