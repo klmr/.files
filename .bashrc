@@ -21,19 +21,19 @@ _git() {
     git "$@" 2>/dev/null
 }
 
-parse_git_dirty() {
+_parse_git_dirty() {
     _git diff-index --quiet HEAD -- || echo "*"
 }
 
-parse_git_branch() {
+_parse_git_branch() {
     local branch="$(_git symbolic-ref -q --short HEAD || _git rev-parse --short HEAD)"
-    [[ ${#branch} -gt 0 ]] && echo " (⎇ $branch$(parse_git_dirty))"
+    [[ ${#branch} -gt 0 ]] && echo " (⎇ $branch$(_parse_git_dirty))"
 }
 
 case "$TERM" in
     xterm-256color | xterm | screen-256color | screen)
         [ "$(whoami)" == "root" ] &&  COLOR_CODE=31 || COLOR_CODE=32;
-        PS1='${PS_COUNT##*[$((PS_COUNT=0))-9]}${debian_chroot:+($debian_chroot)}\[\033[01;'$COLOR_CODE'm\]\[\033[00m\]\[\033[0;34m\]\w\[\033[00m\]$(parse_git_branch)
+        PS1='${PS_COUNT##*[$((PS_COUNT=0))-9]}${debian_chroot:+($debian_chroot)}\[\033[01;'$COLOR_CODE'm\]\[\033[00m\]\[\033[0;34m\]\w\[\033[00m\]$(_parse_git_branch)
 ⟩⟩⟩ '
         PS2='$((++PS_COUNT)) ⟩ '
         ;;
