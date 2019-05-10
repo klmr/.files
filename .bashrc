@@ -17,14 +17,17 @@ export LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35'
 
 # git status in prompt, https://gist.github.com/2051095
 
+_git() {
+    git "$@" 2>/dev/null
+}
+
 parse_git_dirty() {
-    grep "^nothing to commit" \
-        <(git status 2> /dev/null | tail -n1) > /dev/null || \
-    echo "*"
+    _git diff-index --quiet HEAD -- || echo "*"
 }
 
 parse_git_branch() {
-    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (⎇ \1$(parse_git_dirty))/"
+    local branch="$(_git symbolic-ref -q --short HEAD || _git rev-parse --short HEAD)"
+    [[ ${#branch} -gt 0 ]] && echo " (⎇ $branch$(parse_git_dirty))"
 }
 
 case "$TERM" in
