@@ -17,23 +17,23 @@ export LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35'
 
 # git status in prompt, https://gist.github.com/2051095
 
-_git() {
+_klmr_git() {
     git "$@" 2>/dev/null
 }
 
-_parse_git_dirty() {
-    _git diff-index --quiet HEAD -- || echo "*"
+_klmr_parse_git_dirty() {
+    _klmr_git diff-index --quiet HEAD -- || echo "*"
 }
 
-_parse_git_branch() {
-    local branch="$(_git symbolic-ref -q --short HEAD || _git rev-parse --short HEAD)"
-    [[ ${#branch} -gt 0 ]] && echo " (⎇ $branch$(_parse_git_dirty))"
+_klmr_parse_git_branch() {
+    local branch="$(_klmr_git symbolic-ref -q --short HEAD || _klmr_git rev-parse --short HEAD)"
+    [[ ${#branch} -gt 0 ]] && echo " (⎇ $branch$(_klmr_parse_git_dirty))"
 }
 
 case "$TERM" in
     xterm-256color | xterm | screen-256color | screen)
         [ "$(whoami)" == "root" ] &&  COLOR_CODE=31 || COLOR_CODE=32;
-        PS1='${PS_COUNT##*[$((PS_COUNT=0))-9]}${debian_chroot:+($debian_chroot)}\[\033[01;'$COLOR_CODE'm\]\[\033[00m\]\[\033[0;34m\]\w\[\033[00m\]$(_parse_git_branch)
+        PS1='${PS_COUNT##*[$((PS_COUNT=0))-9]}${debian_chroot:+($debian_chroot)}\[\033[01;'$COLOR_CODE'm\]\[\033[00m\]\[\033[0;34m\]\w\[\033[00m\]$(_klmr_parse_git_branch)
 ⟩⟩⟩ '
         PS2='$((++PS_COUNT)) ⟩ '
         ;;
